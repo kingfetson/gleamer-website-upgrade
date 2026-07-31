@@ -169,6 +169,13 @@
       color: var(--secondary);
       font-size: 14px;
     }
+    .header-contact a {
+      color: #fff;
+      transition: var(--transition);
+    }
+    .header-contact a:hover {
+      color: var(--secondary);
+    }
     .top-header-right {
       display: flex;
       gap: 16px;
@@ -370,6 +377,93 @@
       text-decoration: underline;
     }
 
+    /* ===== SERVICES POPUP (View all services) ===== */
+    .services-popup-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.6);
+      backdrop-filter: blur(6px);
+      z-index: 1000;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+    }
+    .services-popup-overlay.active {
+      display: flex;
+    }
+    .services-popup {
+      background: var(--bg-white);
+      border-radius: var(--radius-lg);
+      max-width: 800px;
+      width: 100%;
+      max-height: 80vh;
+      overflow-y: auto;
+      padding: 40px 36px;
+      position: relative;
+      animation: modalFade 0.3s ease;
+      box-shadow: var(--shadow-lg);
+    }
+    .services-popup .popup-close {
+      position: absolute;
+      top: 16px;
+      right: 20px;
+      background: none;
+      border: none;
+      font-size: 1.8rem;
+      cursor: pointer;
+      color: var(--text-muted);
+      transition: var(--transition);
+    }
+    .services-popup .popup-close:hover {
+      color: var(--text-dark);
+    }
+    .services-popup h2 {
+      font-size: 2rem;
+      font-weight: 800;
+      margin-bottom: 8px;
+      color: var(--text-dark);
+    }
+    .services-popup .popup-sub {
+      color: var(--text-muted);
+      margin-bottom: 28px;
+    }
+    .services-grid-popup {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+    .service-popup-item {
+      background: var(--bg-light);
+      border-radius: var(--radius);
+      padding: 20px 24px;
+      border: 1px solid var(--border-color);
+      transition: var(--transition);
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+    .service-popup-item:hover {
+      border-color: var(--primary);
+      box-shadow: var(--shadow);
+      transform: translateY(-2px);
+    }
+    .service-popup-item i {
+      font-size: 1.8rem;
+      color: var(--primary);
+      width: 40px;
+      text-align: center;
+    }
+    .service-popup-item div h6 {
+      font-weight: 700;
+      font-size: 1rem;
+      color: var(--text-dark);
+    }
+    .service-popup-item div p {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
     /* ===== HERO ===== */
     .hero {
       position: relative;
@@ -536,6 +630,13 @@
       border-bottom: 2px solid var(--primary);
       padding-bottom: 2px;
       transition: var(--transition);
+      cursor: pointer;
+      background: none;
+      border-top: none;
+      border-left: none;
+      border-right: none;
+      font-size: inherit;
+      font-family: inherit;
     }
     .view-all:hover {
       color: var(--secondary);
@@ -1130,6 +1231,9 @@
         grid-template-columns: 1fr 1fr;
         gap: 30px;
       }
+      .services-grid-popup {
+        grid-template-columns: 1fr 1fr;
+      }
     }
 
     @media (max-width: 768px) {
@@ -1187,6 +1291,12 @@
         font-size: 0.8rem;
         gap: 16px;
       }
+      .services-grid-popup {
+        grid-template-columns: 1fr;
+      }
+      .services-popup {
+        padding: 28px 20px;
+      }
     }
 
     @media (max-width: 480px) {
@@ -1233,7 +1343,7 @@
         <div class="top-header-left">
           <div class="header-contact">
             <i class="fas fa-envelope"></i>
-            <span>Support@gleamer.com</span>
+            <a href="mailto:Support@gleamer.com">Support@gleamer.com</a>
           </div>
           <div class="header-contact">
             <i class="fas fa-map-marker-alt"></i>
@@ -1271,8 +1381,7 @@
         </ul>
 
         <div class="nav-actions">
-          <a href="#book" class="btn btn-outline">Book a service</a>
-          <!-- Sign In / Sign Up trigger -->
+          <a href="#book" class="btn btn-outline" id="bookNavBtn">Book a service</a>
           <a href="#" class="btn btn-primary" id="authTrigger">Sign In / Sign Up</a>
           <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle menu">
             <i class="fas fa-bars"></i>
@@ -1307,6 +1416,51 @@
   </div>
 
   <!-- ============================================================
+  SERVICES POPUP (View all services)
+  ============================================================ -->
+  <div class="services-popup-overlay" id="servicesPopup">
+    <div class="services-popup">
+      <button class="popup-close" id="popupClose"><i class="fas fa-times"></i></button>
+      <h2>All Our Services</h2>
+      <p class="popup-sub">Professional cleaning solutions tailored to your needs.</p>
+      <div class="services-grid-popup">
+        <div class="service-popup-item">
+          <i class="fas fa-home"></i>
+          <div><h6>Regular Cleaning</h6><p>Essential upkeep for a fresh home</p></div>
+        </div>
+        <div class="service-popup-item">
+          <i class="fas fa-broom"></i>
+          <div><h6>Deep Cleaning</h6><p>Thorough, spotless results</p></div>
+        </div>
+        <div class="service-popup-item">
+          <i class="fas fa-truck"></i>
+          <div><h6>Move-in / Move-out</h6><p>Stress-free moving cleaning</p></div>
+        </div>
+        <div class="service-popup-item">
+          <i class="fas fa-boxes"></i>
+          <div><h6>Removal & Storage</h6><p>Declutter and organize</p></div>
+        </div>
+        <div class="service-popup-item">
+          <i class="fas fa-leaf"></i>
+          <div><h6>Eco Cleaning</h6><p>Safe, green products</p></div>
+        </div>
+        <div class="service-popup-item">
+          <i class="fas fa-hammer"></i>
+          <div><h6>Renovation Cleaning</h6><p>Post-construction cleanup</p></div>
+        </div>
+        <div class="service-popup-item">
+          <i class="fas fa-wind"></i>
+          <div><h6>Carpet & Upholstery</h6><p>Deep fabric care</p></div>
+        </div>
+        <div class="service-popup-item">
+          <i class="fas fa-calendar-check"></i>
+          <div><h6>Recurring Plans</h6><p>Weekly, bi-weekly, monthly</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============================================================
   HERO SECTION
   ============================================================ -->
   <section class="hero" id="home">
@@ -1318,7 +1472,7 @@
           <h1>Trusted Residential <span class="highlight">Cleaning Services</span></h1>
           <p>Enjoy a pristine home with our expert cleaning services. Book now for a cleaner, fresher living space.</p>
           <div class="hero-buttons">
-            <a href="#book" class="btn btn-secondary">Book a Service</a>
+            <a href="#book" class="btn btn-secondary" id="heroBookBtn">Book a Service</a>
           </div>
         </div>
         <div class="hero-form">
@@ -1382,7 +1536,7 @@
         </div>
         <div class="section-header-right">
           <p>Explore our efficient <strong>cleaning services</strong> designed to maintain a neat and tidy home environment.</p>
-          <a href="#" class="view-all">View all services →</a>
+          <button class="view-all" id="viewAllBtn">View all services →</button>
         </div>
       </div>
     </div>
@@ -1477,7 +1631,7 @@
             <li><i class="fas fa-check-circle"></i> Seasonal cleaning</li>
             <li><i class="fas fa-check-circle"></i> Customized cleaning plans</li>
           </ul>
-          <a href="#contact" class="btn btn-secondary">Contact Us</a>
+          <a href="#contact" class="btn btn-secondary" id="contactBtn">Contact Us</a>
         </div>
         <div class="highlights-image">
           <img src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=680&h=655&fit=crop" alt="Professional cleaning team" />
@@ -1620,14 +1774,14 @@
   <!-- ============================================================
   IMPACT BANNER
   ============================================================ -->
-  <section class="impact-banner">
+  <section class="impact-banner" id="contact">
     <div class="container">
       <div class="impact-grid">
         <div class="impact-content">
           <h2 class="impact-number">408K+</h2>
           <h4>People who have started <span class="highlight">cleaning</span></h4>
           <p>Cleaning services in England cater to a wide range of needs from residential.</p>
-          <a href="#quote" class="btn btn-primary">Get a free quote</a>
+          <a href="#" class="btn btn-primary" id="quoteBtn">Get a free quote</a>
         </div>
       </div>
     </div>
@@ -1819,6 +1973,73 @@
           authForm.reset();
         } else {
           alert('Please fill in all fields.');
+        }
+      });
+
+      // ============================================================
+      // SERVICES POPUP (View all services)
+      // ============================================================
+      const popup = document.getElementById('servicesPopup');
+      const viewAllBtn = document.getElementById('viewAllBtn');
+      const popupClose = document.getElementById('popupClose');
+
+      function openPopup() {
+        popup.classList.add('active');
+        document.body.style.overflow = 'hidden';
+      }
+
+      function closePopup() {
+        popup.classList.remove('active');
+        document.body.style.overflow = '';
+      }
+
+      viewAllBtn.addEventListener('click', openPopup);
+      popupClose.addEventListener('click', closePopup);
+      popup.addEventListener('click', (e) => {
+        if (e.target === popup) closePopup();
+      });
+
+      // ============================================================
+      // BOOK & CONTACT BUTTONS (scroll to contact/quote)
+      // ============================================================
+      function scrollToContact() {
+        const contactSection = document.getElementById('contact');
+        if (contactSection) {
+          const navHeight = document.querySelector('.navbar')?.offsetHeight || 80;
+          const targetPosition = contactSection.getBoundingClientRect().top + window.pageYOffset - navHeight;
+          window.scrollTo({ top: targetPosition, behavior: 'smooth' });
+        }
+      }
+
+      // Book buttons
+      const bookButtons = [
+        document.getElementById('bookNavBtn'),
+        document.getElementById('heroBookBtn'),
+        ...document.querySelectorAll('.book-btn')
+      ];
+
+      bookButtons.forEach(btn => {
+        if (btn) {
+          btn.addEventListener('click', (e) => {
+            e.preventDefault();
+            scrollToContact();
+          });
+        }
+      });
+
+      // Contact buttons
+      const contactButtons = [
+        document.getElementById('contactBtn'),
+        document.getElementById('quoteBtn'),
+        document.querySelector('.footer-col ul a[href="#contact"]')
+      ];
+
+      contactButtons.forEach(btn => {
+        if (btn) {
+          btn.addEventListener('click', (e) => {
+            e.preventDefault();
+            scrollToContact();
+          });
         }
       });
 
