@@ -1,0 +1,1949 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gleamer · Premium Cleaning Services</title>
+  <meta name="description" content="Gleamer - Professional cleaning services for your home and office. Eco-friendly, reliable, and affordable." />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🧹</text></svg>" />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800;14..32,900&display=swap" rel="stylesheet" />
+
+  <!-- Font Awesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+  <style>
+    /* ============================================================
+       CSS VARIABLES & DESIGN SYSTEM
+       ============================================================ */
+    :root {
+      --primary: #0F766E;
+      --primary-dark: #0A5C55;
+      --secondary: #14B8A6;
+      --accent: #F59E0B;
+      --text-dark: #0F172A;
+      --text-muted: #64748B;
+      --bg-white: #FFFFFF;
+      --bg-light: #F8FAFC;
+      --bg-dark: #1F2A2E;
+      --border-color: #E2E8F0;
+      --radius: 12px;
+      --radius-lg: 24px;
+      --radius-pill: 9999px;
+      --shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+      --shadow-lg: 0 20px 40px rgba(0, 0, 0, 0.12);
+      --font-family: 'Inter', -apple-system, system-ui, sans-serif;
+      --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    body.dark {
+      --bg-white: #1a1a2e;
+      --bg-light: #16213e;
+      --text-dark: #e2e8f0;
+      --text-muted: #94a3b8;
+      --border-color: #2d3748;
+      --shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+      --shadow-lg: 0 20px 40px rgba(0, 0, 0, 0.4);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: var(--font-family);
+      color: var(--text-dark);
+      background: var(--bg-white);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      transition: background 0.3s ease, color 0.3s ease;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+    .container {
+      max-width: 1240px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* ===== BUTTONS ===== */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 12px 28px;
+      border-radius: var(--radius-pill);
+      font-weight: 600;
+      font-size: 0.95rem;
+      cursor: pointer;
+      transition: var(--transition);
+      border: none;
+      gap: 8px;
+    }
+    .btn-primary {
+      background: var(--primary);
+      color: #fff;
+    }
+    .btn-primary:hover {
+      background: var(--primary-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(15, 118, 110, 0.3);
+    }
+    .btn-secondary {
+      background: var(--secondary);
+      color: #fff;
+    }
+    .btn-secondary:hover {
+      background: var(--primary);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(20, 184, 166, 0.3);
+    }
+    .btn-outline {
+      background: transparent;
+      color: var(--text-dark);
+      border: 2px solid var(--border-color);
+    }
+    .btn-outline:hover {
+      border-color: var(--primary);
+      color: var(--primary);
+    }
+    .btn-block {
+      width: 100%;
+      justify-content: center;
+    }
+    .badge {
+      display: inline-block;
+      background: var(--primary);
+      color: var(--secondary);
+      font-weight: 600;
+      font-size: 0.8rem;
+      padding: 4px 16px;
+      border-radius: var(--radius-pill);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    /* ===== TOP HEADER ===== */
+    .top-header {
+      background: var(--primary);
+      color: #fff;
+      padding: 8px 0;
+      font-size: 0.85rem;
+    }
+    .top-header-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .top-header-left {
+      display: flex;
+      gap: 24px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    .header-contact {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .header-contact i {
+      color: var(--secondary);
+      font-size: 14px;
+    }
+    .top-header-right {
+      display: flex;
+      gap: 16px;
+      align-items: center;
+    }
+    .top-header-right a {
+      opacity: 0.7;
+      transition: var(--transition);
+    }
+    .top-header-right a:hover {
+      opacity: 1;
+    }
+    .theme-toggle {
+      background: none;
+      border: none;
+      color: #fff;
+      cursor: pointer;
+      font-size: 16px;
+      opacity: 0.7;
+      transition: var(--transition);
+    }
+    .theme-toggle:hover {
+      opacity: 1;
+    }
+
+    /* ===== NAVIGATION ===== */
+    .navbar {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--bg-white);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border-color);
+      padding: 12px 0;
+      transition: background 0.3s ease, border-color 0.3s ease;
+    }
+    .navbar-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 800;
+      font-size: 1.3rem;
+    }
+    .logo-icon {
+      font-size: 1.6rem;
+    }
+    .logo-text {
+      color: var(--text-dark);
+    }
+    .nav-links {
+      display: flex;
+      gap: 32px;
+      list-style: none;
+      align-items: center;
+    }
+    .nav-links a {
+      font-weight: 500;
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      transition: var(--transition);
+      position: relative;
+    }
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--primary);
+      transition: var(--transition);
+    }
+    .nav-links a:hover::after,
+    .nav-links a.active::after {
+      width: 100%;
+    }
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: var(--text-dark);
+    }
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+    .mobile-toggle {
+      display: none;
+      background: none;
+      border: none;
+      font-size: 1.4rem;
+      cursor: pointer;
+      color: var(--text-dark);
+    }
+    .nav-actions .btn-outline {
+      padding: 8px 20px;
+      font-size: 0.85rem;
+    }
+    .nav-actions .btn-primary {
+      padding: 8px 20px;
+      font-size: 0.85rem;
+    }
+
+    /* ===== MODAL (Sign In / Sign Up) ===== */
+    .modal-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.5);
+      backdrop-filter: blur(4px);
+      z-index: 999;
+      justify-content: center;
+      align-items: center;
+    }
+    .modal-overlay.active {
+      display: flex;
+    }
+    .modal-box {
+      background: var(--bg-white);
+      border-radius: var(--radius-lg);
+      padding: 40px 36px;
+      max-width: 440px;
+      width: 90%;
+      box-shadow: var(--shadow-lg);
+      position: relative;
+      animation: modalFade 0.3s ease;
+    }
+    @keyframes modalFade {
+      from {
+        opacity: 0;
+        transform: scale(0.95) translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+      }
+    }
+    .modal-close {
+      position: absolute;
+      top: 16px;
+      right: 20px;
+      background: none;
+      border: none;
+      font-size: 1.6rem;
+      cursor: pointer;
+      color: var(--text-muted);
+      transition: var(--transition);
+    }
+    .modal-close:hover {
+      color: var(--text-dark);
+    }
+    .modal-box h2 {
+      font-size: 1.8rem;
+      font-weight: 700;
+      margin-bottom: 8px;
+      color: var(--text-dark);
+    }
+    .modal-box .sub {
+      color: var(--text-muted);
+      margin-bottom: 24px;
+    }
+    .modal-box .form-group {
+      margin-bottom: 16px;
+    }
+    .modal-box input {
+      width: 100%;
+      padding: 12px 16px;
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius);
+      font-size: 0.95rem;
+      background: var(--bg-white);
+      color: var(--text-dark);
+      transition: var(--transition);
+    }
+    .modal-box input:focus {
+      outline: none;
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px rgba(15, 118, 110, 0.1);
+    }
+    .modal-box .btn-block {
+      margin-top: 8px;
+    }
+    .modal-switch {
+      text-align: center;
+      margin-top: 16px;
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+    .modal-switch a {
+      color: var(--primary);
+      font-weight: 600;
+      cursor: pointer;
+    }
+    .modal-switch a:hover {
+      text-decoration: underline;
+    }
+
+    /* ===== HERO ===== */
+    .hero {
+      position: relative;
+      padding: 80px 0 100px;
+      background: var(--bg-dark);
+      overflow: hidden;
+    }
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background: url('https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=1920&auto=format&fit=crop') center/cover no-repeat;
+      opacity: 0.25;
+    }
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+      position: relative;
+      z-index: 1;
+    }
+    .hero-content .badge {
+      margin-bottom: 16px;
+    }
+    .hero-content h1 {
+      font-size: 3.2rem;
+      font-weight: 800;
+      color: #fff;
+      line-height: 1.15;
+      margin-bottom: 16px;
+    }
+    .hero-content .highlight {
+      color: var(--secondary);
+    }
+    .hero-content p {
+      color: rgba(255, 255, 255, 0.8);
+      font-size: 1.1rem;
+      max-width: 500px;
+      margin-bottom: 28px;
+    }
+    .hero-buttons {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+    .hero-form .quote-card {
+      background: var(--bg-white);
+      padding: 40px;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow-lg);
+      transition: background 0.3s ease;
+    }
+    .quote-card h4 {
+      font-size: 1.3rem;
+      font-weight: 700;
+      margin-bottom: 24px;
+    }
+    .quote-card .form-group {
+      margin-bottom: 16px;
+    }
+    .quote-card input[type="text"],
+    .quote-card input[type="tel"],
+    .quote-card input[type="email"] {
+      width: 100%;
+      padding: 12px 16px;
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius);
+      font-size: 0.95rem;
+      transition: var(--transition);
+      background: var(--bg-white);
+      color: var(--text-dark);
+    }
+    .quote-card input:focus {
+      outline: none;
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px rgba(15, 118, 110, 0.1);
+    }
+    .checkbox-label {
+      display: block;
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+    .checkbox-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+    }
+    .checkbox-grid label {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      cursor: pointer;
+    }
+    .checkbox-grid input[type="checkbox"] {
+      accent-color: var(--primary);
+      width: 16px;
+      height: 16px;
+    }
+
+    /* ===== ANNOUNCEMENT BAR ===== */
+    .announcement-bar {
+      background: var(--primary);
+      color: #fff;
+      padding: 10px 0;
+      overflow: hidden;
+    }
+    .announcement-track {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 24px;
+      font-size: 0.95rem;
+      font-weight: 500;
+      white-space: nowrap;
+      animation: scrollAnnouncement 30s linear infinite;
+    }
+    .announcement-track .divider {
+      width: 2px;
+      height: 20px;
+      background: rgba(255, 255, 255, 0.3);
+    }
+    @keyframes scrollAnnouncement {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+    .announcement-track:hover {
+      animation-play-state: paused;
+    }
+
+    /* ===== SECTION HEADERS ===== */
+    .section-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      gap: 40px;
+      margin-bottom: 48px;
+    }
+    .section-header.center {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+    .section-header-left .badge {
+      margin-bottom: 8px;
+    }
+    .section-header-left h2 {
+      font-size: 2.4rem;
+      font-weight: 800;
+      margin-top: 8px;
+      color: var(--text-dark);
+    }
+    .section-header-right {
+      max-width: 380px;
+    }
+    .section-header-right p {
+      color: var(--text-muted);
+      margin-bottom: 12px;
+    }
+    .view-all {
+      font-weight: 600;
+      color: var(--primary);
+      border-bottom: 2px solid var(--primary);
+      padding-bottom: 2px;
+      transition: var(--transition);
+    }
+    .view-all:hover {
+      color: var(--secondary);
+      border-color: var(--secondary);
+    }
+
+    /* ===== SERVICES CAROUSEL ===== */
+    .services-carousel {
+      padding: 80px 0;
+      background: linear-gradient(to bottom, var(--bg-dark) 70%, var(--bg-light) 30%);
+    }
+    .services-carousel .section-header-left h2 {
+      color: #fff;
+    }
+    .services-carousel .section-header-right p {
+      color: rgba(255, 255, 255, 0.7);
+    }
+    .carousel-wrapper {
+      position: relative;
+      overflow: hidden;
+      padding: 0 20px;
+    }
+    .carousel-track {
+      display: flex;
+      gap: 40px;
+      transition: transform 0.5s ease;
+      will-change: transform;
+    }
+    .carousel-slide {
+      flex: 0 0 440px;
+    }
+    .service-card {
+      position: relative;
+      height: 384px;
+      border-radius: var(--radius);
+      overflow: hidden;
+    }
+    .service-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: var(--transition);
+    }
+    .service-card:hover img {
+      transform: scale(1.05);
+    }
+    .service-card-footer {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      display: flex;
+      align-items: center;
+      background: var(--bg-white);
+      padding: 16px 24px;
+      gap: 12px;
+      backdrop-filter: blur(8px);
+      transition: background 0.3s ease;
+    }
+    .slide-number {
+      color: rgba(15, 118, 110, 0.4);
+      font-weight: 600;
+      font-size: 0.9rem;
+    }
+    .service-card-footer h6 {
+      flex: 1;
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--text-dark);
+    }
+    .arrow-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      background: var(--primary);
+      color: #fff;
+      border-radius: var(--radius);
+      transition: var(--transition);
+    }
+    .arrow-btn:hover {
+      background: var(--secondary);
+      transform: translateX(4px);
+    }
+    .carousel-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      border: 1px solid var(--primary);
+      background: var(--primary);
+      color: #fff;
+      cursor: pointer;
+      transition: var(--transition);
+      z-index: 10;
+    }
+    .carousel-btn:hover {
+      background: var(--secondary);
+      border-color: var(--secondary);
+    }
+    .carousel-btn.prev {
+      left: 0;
+    }
+    .carousel-btn.next {
+      right: 0;
+    }
+
+    /* ===== HIGHLIGHTS ===== */
+    .highlights {
+      padding: 80px 0;
+      background: var(--bg-white);
+      transition: background 0.3s ease;
+    }
+    .highlights-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+    }
+    .highlights-content .badge {
+      margin-bottom: 12px;
+    }
+    .highlights-content h2 {
+      font-size: 2.6rem;
+      font-weight: 800;
+      margin-bottom: 16px;
+      color: var(--text-dark);
+    }
+    .highlights-subtitle {
+      font-size: 1.1rem;
+      color: var(--text-muted);
+      margin-bottom: 32px;
+    }
+    .highlights-list {
+      list-style: none;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px 24px;
+      margin-bottom: 32px;
+    }
+    .highlights-list li {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 600;
+      color: var(--text-dark);
+    }
+    .highlights-list li i {
+      color: var(--secondary);
+      font-size: 1.2rem;
+    }
+    .highlights-image img {
+      border-radius: var(--radius-lg);
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    /* ===== WHY CHOOSE ===== */
+    .why-choose {
+      padding: 80px 0;
+      background: var(--bg-light);
+      transition: background 0.3s ease;
+    }
+    .why-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 24px;
+      margin-top: 40px;
+    }
+    .why-item {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .why-number {
+      font-weight: 800;
+      font-size: 1.2rem;
+      color: var(--primary);
+      background: rgba(15, 118, 110, 0.1);
+      padding: 6px 14px;
+      border-radius: var(--radius-pill);
+      width: fit-content;
+    }
+    .why-item p {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      line-height: 1.6;
+    }
+
+    /* ===== TESTIMONIALS ===== */
+    .testimonials {
+      padding: 80px 0;
+      background: var(--secondary);
+    }
+    .testimonials .section-header-left h2 {
+      color: #fff;
+    }
+    .testimonials .section-header-right p {
+      color: rgba(255, 255, 255, 0.8);
+    }
+    .testimonial-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 32px;
+    }
+    .testimonial-card {
+      position: relative;
+      border-radius: var(--radius);
+      overflow: hidden;
+      height: 100%;
+    }
+    .testimonial-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .testimonial-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.3);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 30px;
+    }
+    .play-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.2);
+      backdrop-filter: blur(4px);
+      cursor: pointer;
+      transition: var(--transition);
+      color: #fff;
+      font-size: 1.4rem;
+    }
+    .play-btn:hover {
+      background: rgba(255, 255, 255, 0.3);
+      transform: scale(1.05);
+    }
+    .testimonial-quote h5 {
+      color: #fff;
+      font-size: 1.1rem;
+      font-weight: 600;
+    }
+    .testimonial-quote p {
+      color: rgba(255, 255, 255, 0.8);
+      font-weight: 700;
+      margin-top: 8px;
+    }
+    .testimonial-side {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+    .testimonial-small {
+      position: relative;
+      border-radius: var(--radius);
+      overflow: hidden;
+    }
+    .testimonial-small img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .play-btn-small {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.2);
+      backdrop-filter: blur(4px);
+      cursor: pointer;
+      color: #fff;
+      font-size: 1rem;
+      transition: var(--transition);
+    }
+    .play-btn-small:hover {
+      background: rgba(255, 255, 255, 0.3);
+      transform: translate(-50%, -50%) scale(1.05);
+    }
+    .testimonial-text {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 20px 24px;
+      background: linear-gradient(to top, rgba(0, 0, 0, 0.6), transparent);
+      color: #fff;
+    }
+    .testimonial-text p {
+      font-size: 0.95rem;
+      line-height: 1.5;
+    }
+    .testimonial-text .author {
+      font-weight: 700;
+      margin-top: 4px;
+    }
+
+    /* ===== PRICING ===== */
+    .pricing {
+      padding: 80px 0;
+      background: var(--bg-light);
+      transition: background 0.3s ease;
+    }
+    .pricing-list {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      margin-top: 40px;
+    }
+    .pricing-item {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      padding: 24px 32px;
+      background: var(--bg-white);
+      border-radius: var(--radius);
+      border: 1px solid var(--border-color);
+      transition: var(--transition);
+      flex-wrap: wrap;
+    }
+    .pricing-item:hover {
+      background: var(--primary);
+      border-color: var(--secondary);
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-lg);
+    }
+    .pricing-item:hover * {
+      color: #fff;
+    }
+    .pricing-item:hover .book-btn {
+      background: var(--secondary);
+      color: var(--primary);
+    }
+    .pricing-info {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      min-width: 180px;
+    }
+    .pricing-info i {
+      font-size: 1.5rem;
+      color: var(--primary);
+    }
+    .pricing-item:hover .pricing-info i {
+      color: #fff;
+    }
+    .pricing-item p {
+      flex: 1;
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      min-width: 200px;
+    }
+    .price {
+      font-weight: 700;
+      font-size: 1.1rem;
+      min-width: 80px;
+    }
+    .book-btn {
+      padding: 10px 24px;
+      background: var(--bg-light);
+      border-radius: var(--radius);
+      font-weight: 700;
+      transition: var(--transition);
+      cursor: pointer;
+      border: none;
+    }
+    .book-btn:hover {
+      background: var(--secondary);
+      color: #fff;
+    }
+
+    /* ===== IMPACT BANNER ===== */
+    .impact-banner {
+      padding: 80px 0;
+      background: linear-gradient(135deg, rgba(33, 46, 52, 0.95), rgba(33, 46, 52, 0.8)), url('https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=1920&auto=format&fit=crop') center/cover no-repeat;
+      color: #fff;
+    }
+    .impact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+    }
+    .impact-content {
+      max-width: 500px;
+    }
+    .impact-number {
+      font-size: 5rem;
+      font-weight: 900;
+      margin-bottom: 8px;
+    }
+    .impact-content h4 {
+      font-size: 1.6rem;
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+    .impact-content .highlight {
+      color: var(--secondary);
+    }
+    .impact-content p {
+      opacity: 0.8;
+      margin-bottom: 24px;
+    }
+
+    /* ============================================================
+       FOOTER — REDESIGNED & ATTRACTIVE
+       ============================================================ */
+    .footer {
+      background: var(--bg-dark);
+      color: rgba(255, 255, 255, 0.8);
+      padding: 60px 0 20px;
+      border-top: 4px solid var(--secondary);
+    }
+    .footer .container {
+      display: flex;
+      flex-direction: column;
+      gap: 40px;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 40px;
+    }
+    .footer-brand .logo {
+      color: #fff;
+      margin-bottom: 12px;
+    }
+    .footer-brand p {
+      max-width: 280px;
+      font-size: 0.95rem;
+      line-height: 1.7;
+      opacity: 0.7;
+    }
+    .footer-social-links {
+      display: flex;
+      gap: 14px;
+      margin-top: 16px;
+    }
+    .footer-social-links a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.06);
+      color: #fff;
+      transition: var(--transition);
+      font-size: 1rem;
+    }
+    .footer-social-links a:hover {
+      background: var(--secondary);
+      color: var(--bg-dark);
+      transform: translateY(-3px);
+    }
+
+    .footer-col h5 {
+      color: #fff;
+      font-size: 1.1rem;
+      font-weight: 700;
+      margin-bottom: 18px;
+      letter-spacing: 0.3px;
+    }
+    .footer-col ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .footer-col ul a {
+      opacity: 0.7;
+      transition: var(--transition);
+      font-size: 0.95rem;
+    }
+    .footer-col ul a:hover {
+      opacity: 1;
+      color: var(--secondary);
+      transform: translateX(4px);
+    }
+
+    .footer-newsletter-box {
+      background: rgba(255, 255, 255, 0.04);
+      border-radius: var(--radius);
+      padding: 28px 24px;
+      border: 1px solid rgba(255, 255, 255, 0.06);
+    }
+    .footer-newsletter-box h5 {
+      color: #fff;
+      font-size: 1.1rem;
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+    .footer-newsletter-box p {
+      opacity: 0.6;
+      font-size: 0.9rem;
+      margin-bottom: 16px;
+    }
+    .footer-newsletter-box form {
+      display: flex;
+      gap: 8px;
+    }
+    .footer-newsletter-box input {
+      flex: 1;
+      padding: 10px 14px;
+      border-radius: var(--radius);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      background: rgba(255, 255, 255, 0.06);
+      color: #fff;
+      font-size: 0.9rem;
+    }
+    .footer-newsletter-box input::placeholder {
+      color: rgba(255, 255, 255, 0.4);
+    }
+    .footer-newsletter-box input:focus {
+      outline: none;
+      border-color: var(--secondary);
+    }
+    .footer-newsletter-box .btn {
+      padding: 10px 20px;
+      font-size: 0.85rem;
+      white-space: nowrap;
+    }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+      padding-top: 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+      font-size: 0.85rem;
+      opacity: 0.6;
+    }
+    .footer-bottom a {
+      transition: var(--transition);
+    }
+    .footer-bottom a:hover {
+      opacity: 1;
+      color: var(--secondary);
+    }
+    .footer-legal-links {
+      display: flex;
+      gap: 24px;
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 1024px) {
+      .hero-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+      .hero-content h1 {
+        font-size: 2.6rem;
+      }
+      .highlights-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+      .testimonial-grid {
+        grid-template-columns: 1fr;
+      }
+      .why-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+      .impact-grid {
+        grid-template-columns: 1fr;
+      }
+      .pricing-item {
+        flex-direction: column;
+        align-items: stretch;
+        text-align: center;
+      }
+      .pricing-info {
+        justify-content: center;
+      }
+      .footer-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 30px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .top-header {
+        display: none;
+      }
+      .nav-links {
+        display: none;
+      }
+      .mobile-toggle {
+        display: block;
+      }
+      .hero-content h1 {
+        font-size: 2rem;
+      }
+      .section-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 16px;
+      }
+      .section-header-right {
+        max-width: 100%;
+      }
+      .carousel-slide {
+        flex: 0 0 320px;
+      }
+      .carousel-btn {
+        width: 32px;
+        height: 32px;
+      }
+      .why-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+      .checkbox-grid {
+        grid-template-columns: 1fr;
+      }
+      .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 32px;
+      }
+      .footer-newsletter-box form {
+        flex-direction: column;
+      }
+      .footer-bottom {
+        flex-direction: column;
+        text-align: center;
+      }
+      .impact-number {
+        font-size: 3.5rem;
+      }
+      .highlights-list {
+        grid-template-columns: 1fr;
+      }
+      .announcement-track {
+        font-size: 0.8rem;
+        gap: 16px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .carousel-slide {
+        flex: 0 0 280px;
+      }
+      .hero-form .quote-card {
+        padding: 24px;
+      }
+      .why-grid {
+        grid-template-columns: 1fr;
+      }
+      .pricing-item {
+        padding: 16px 20px;
+      }
+      .pricing-info {
+        flex-direction: column;
+        text-align: center;
+      }
+      .service-card {
+        height: 300px;
+      }
+      .nav-actions .btn-outline {
+        display: none;
+      }
+      .nav-actions .btn-primary {
+        padding: 6px 14px;
+        font-size: 0.75rem;
+      }
+      .modal-box {
+        padding: 28px 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ============================================================
+  TOP HEADER
+  ============================================================ -->
+  <header class="top-header">
+    <div class="container">
+      <div class="top-header-inner">
+        <div class="top-header-left">
+          <div class="header-contact">
+            <i class="fas fa-envelope"></i>
+            <span>Support@gleamer.com</span>
+          </div>
+          <div class="header-contact">
+            <i class="fas fa-map-marker-alt"></i>
+            <span>Blane Street, Manchester</span>
+          </div>
+        </div>
+        <div class="top-header-right">
+          <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+          <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+          <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+            <i class="fas fa-moon"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ============================================================
+  NAVIGATION
+  ============================================================ -->
+  <nav class="navbar" id="navbar">
+    <div class="container">
+      <div class="navbar-inner">
+        <a href="#" class="logo">
+          <span class="logo-icon">🧹</span>
+          <span class="logo-text">Gleamer</span>
+        </a>
+
+        <ul class="nav-links" id="navLinks">
+          <li><a href="#home" class="active">Home</a></li>
+          <li><a href="#about">About Us</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#contact">Contact Us</a></li>
+        </ul>
+
+        <div class="nav-actions">
+          <a href="#book" class="btn btn-outline">Book a service</a>
+          <!-- Sign In / Sign Up trigger -->
+          <a href="#" class="btn btn-primary" id="authTrigger">Sign In / Sign Up</a>
+          <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle menu">
+            <i class="fas fa-bars"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ============================================================
+  MODAL (Sign In / Sign Up)
+  ============================================================ -->
+  <div class="modal-overlay" id="authModal">
+    <div class="modal-box">
+      <button class="modal-close" id="modalClose"><i class="fas fa-times"></i></button>
+      <h2 id="modalTitle">Welcome back</h2>
+      <p class="sub" id="modalSub">Sign in to your account or create a new one.</p>
+      <form id="authForm">
+        <div class="form-group">
+          <input type="email" placeholder="Email address" required id="authEmail" />
+        </div>
+        <div class="form-group">
+          <input type="password" placeholder="Password" required id="authPassword" />
+        </div>
+        <button type="submit" class="btn btn-primary btn-block" id="authSubmit">Sign In</button>
+      </form>
+      <div class="modal-switch">
+        <span id="switchText">Don't have an account?</span>
+        <a id="switchAction">Sign Up</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============================================================
+  HERO SECTION
+  ============================================================ -->
+  <section class="hero" id="home">
+    <div class="hero-bg"></div>
+    <div class="container">
+      <div class="hero-grid">
+        <div class="hero-content">
+          <span class="badge">Gleamer cleaning</span>
+          <h1>Trusted Residential <span class="highlight">Cleaning Services</span></h1>
+          <p>Enjoy a pristine home with our expert cleaning services. Book now for a cleaner, fresher living space.</p>
+          <div class="hero-buttons">
+            <a href="#book" class="btn btn-secondary">Book a Service</a>
+          </div>
+        </div>
+        <div class="hero-form">
+          <div class="quote-card">
+            <h4>Get a free quote</h4>
+            <form id="quoteForm">
+              <div class="form-group">
+                <input type="text" placeholder="Full name *" required />
+              </div>
+              <div class="form-group">
+                <input type="tel" placeholder="Phone number *" required />
+              </div>
+              <div class="form-group">
+                <input type="email" placeholder="Email address *" required />
+              </div>
+              <div class="form-group">
+                <label class="checkbox-label">Service options</label>
+                <div class="checkbox-grid">
+                  <label><input type="checkbox" /> Regular Cleaning</label>
+                  <label><input type="checkbox" /> Deep Cleaning</label>
+                  <label><input type="checkbox" /> Move-in / Move-out</label>
+                  <label><input type="checkbox" /> Removal & Storage</label>
+                  <label><input type="checkbox" /> Eco Cleaning</label>
+                  <label><input type="checkbox" /> Renovation Cleaning</label>
+                </div>
+              </div>
+              <button type="submit" class="btn btn-secondary btn-block">Get started today</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+  ANNOUNCEMENT BAR
+  ============================================================ -->
+  <section class="announcement-bar">
+    <div class="container">
+      <div class="announcement-track">
+        <span>Special discounts available for recurring cleaning services!</span>
+        <span class="divider"></span>
+        <span>Free estimates! Contact us today to schedule your cleaning!</span>
+        <span class="divider"></span>
+        <span>Eco-friendly products for a healthier home environment!</span>
+        <span class="divider"></span>
+        <span>Book now and get 10% off your first cleaning service!</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+  SERVICES CAROUSEL
+  ============================================================ -->
+  <section class="services-carousel" id="services">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-header-left">
+          <span class="badge">Your home, our priority</span>
+          <h2>Our Professional Cleaning Services</h2>
+        </div>
+        <div class="section-header-right">
+          <p>Explore our efficient <strong>cleaning services</strong> designed to maintain a neat and tidy home environment.</p>
+          <a href="#" class="view-all">View all services →</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="carousel-wrapper">
+      <div class="carousel-track" id="carouselTrack">
+        <!-- Slide 1 -->
+        <div class="carousel-slide">
+          <div class="service-card">
+            <img src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?w=440&h=390&fit=crop" alt="Regular Cleaning" />
+            <div class="service-card-footer">
+              <span class="slide-number">01.</span>
+              <h6>Regular Cleaning</h6>
+              <a href="#" class="arrow-btn"><i class="fas fa-arrow-right"></i></a>
+            </div>
+          </div>
+        </div>
+        <!-- Slide 2 -->
+        <div class="carousel-slide">
+          <div class="service-card">
+            <img src="https://images.unsplash.com/photo-1628177142898-93e36e4e3a50?w=440&h=390&fit=crop" alt="Deep Cleaning" />
+            <div class="service-card-footer">
+              <span class="slide-number">02.</span>
+              <h6>Deep Cleaning</h6>
+              <a href="#" class="arrow-btn"><i class="fas fa-arrow-right"></i></a>
+            </div>
+          </div>
+        </div>
+        <!-- Slide 3 -->
+        <div class="carousel-slide">
+          <div class="service-card">
+            <img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=440&h=390&fit=crop" alt="Move-in / Move-out" />
+            <div class="service-card-footer">
+              <span class="slide-number">03.</span>
+              <h6>Move-in / Move-out</h6>
+              <a href="#" class="arrow-btn"><i class="fas fa-arrow-right"></i></a>
+            </div>
+          </div>
+        </div>
+        <!-- Slide 4 -->
+        <div class="carousel-slide">
+          <div class="service-card">
+            <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=440&h=390&fit=crop" alt="Removal & Storage" />
+            <div class="service-card-footer">
+              <span class="slide-number">04.</span>
+              <h6>Removal & Storage</h6>
+              <a href="#" class="arrow-btn"><i class="fas fa-arrow-right"></i></a>
+            </div>
+          </div>
+        </div>
+        <!-- Slide 5 -->
+        <div class="carousel-slide">
+          <div class="service-card">
+            <img src="https://images.unsplash.com/photo-1520340356584-f9917d1eea6f?w=440&h=390&fit=crop" alt="Eco Cleaning" />
+            <div class="service-card-footer">
+              <span class="slide-number">05.</span>
+              <h6>Eco Cleaning</h6>
+              <a href="#" class="arrow-btn"><i class="fas fa-arrow-right"></i></a>
+            </div>
+          </div>
+        </div>
+        <!-- Slide 6 -->
+        <div class="carousel-slide">
+          <div class="service-card">
+            <img src="https://images.unsplash.com/photo-1513694203232-719a280e022f?w=440&h=390&fit=crop" alt="Renovation Cleaning" />
+            <div class="service-card-footer">
+              <span class="slide-number">06.</span>
+              <h6>Renovation Cleaning</h6>
+              <a href="#" class="arrow-btn"><i class="fas fa-arrow-right"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <button class="carousel-btn prev" id="prevBtn"><i class="fas fa-chevron-left"></i></button>
+      <button class="carousel-btn next" id="nextBtn"><i class="fas fa-chevron-right"></i></button>
+    </div>
+  </section>
+
+  <!-- ============================================================
+  CLEANING HIGHLIGHTS
+  ============================================================ -->
+  <section class="highlights" id="about">
+    <div class="container">
+      <div class="highlights-grid">
+        <div class="highlights-content">
+          <span class="badge">Gleamer cleaning</span>
+          <h2>Let us make your home shine &amp; spotless</h2>
+          <p class="highlights-subtitle">The desks are polished and dust-free, the carpets are fresh and spotless.</p>
+          <ul class="highlights-list">
+            <li><i class="fas fa-check-circle"></i> Cleaning for allergy relief</li>
+            <li><i class="fas fa-check-circle"></i> Residential deep cleaning</li>
+            <li><i class="fas fa-check-circle"></i> Seasonal cleaning</li>
+            <li><i class="fas fa-check-circle"></i> Customized cleaning plans</li>
+          </ul>
+          <a href="#contact" class="btn btn-secondary">Contact Us</a>
+        </div>
+        <div class="highlights-image">
+          <img src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=680&h=655&fit=crop" alt="Professional cleaning team" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+  WHY CHOOSE US
+  ============================================================ -->
+  <section class="why-choose">
+    <div class="container">
+      <div class="section-header center">
+        <span class="badge">Why choose us?</span>
+        <h2>Exceptional service every time</h2>
+      </div>
+      <div class="why-grid">
+        <div class="why-item">
+          <span class="why-number">01</span>
+          <p>Our team is highly trained and experienced, ensuring thorough and professional cleaning every time.</p>
+        </div>
+        <div class="why-item">
+          <span class="why-number">02</span>
+          <p>We offer tailored cleaning plans to meet your specific needs.</p>
+        </div>
+        <div class="why-item">
+          <span class="why-number">03</span>
+          <p>We use eco-friendly cleaning products that are safe for your family and pets.</p>
+        </div>
+        <div class="why-item">
+          <span class="why-number">04</span>
+          <p>We provide flexible scheduling to fit your busy lifestyle.</p>
+        </div>
+        <div class="why-item">
+          <span class="why-number">05</span>
+          <p>Our satisfaction guarantee ensures you'll be happy with our service, or we'll make it right.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+  TESTIMONIALS
+  ============================================================ -->
+  <section class="testimonials" id="testimonials">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-header-left">
+          <span class="badge">What our clients say</span>
+          <h2>Feedback from satisfied customers.</h2>
+        </div>
+        <div class="section-header-right">
+          <p>Gain insight into how our cleaning services have transformed homes and exceeded expectations.</p>
+        </div>
+      </div>
+      <div class="testimonial-grid">
+        <div class="testimonial-card featured">
+          <img src="https://images.unsplash.com/photo-1527515637462-cff94eecc1ac?w=680&h=445&fit=crop" alt="Testimonial" />
+          <div class="testimonial-overlay">
+            <div class="play-btn"><i class="fas fa-play"></i></div>
+            <div class="testimonial-quote">
+              <h5>"Gleamer transformed my home! Highly recommend their attention to detail."</h5>
+              <p>- Jane Smith</p>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-side">
+          <div class="testimonial-small">
+            <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=328&h=205&fit=crop" alt="Testimonial" />
+            <div class="play-btn-small"><i class="fas fa-play"></i></div>
+            <div class="testimonial-text">
+              <p>I'm consistently impressed by the professionalism and thoroughness of Gleamer's team. My house has never looked better!</p>
+              <p class="author">- Mark Thompson</p>
+            </div>
+          </div>
+          <div class="testimonial-small">
+            <img src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?w=328&h=205&fit=crop" alt="Testimonial" />
+            <div class="play-btn-small"><i class="fas fa-play"></i></div>
+            <div class="testimonial-text">
+              <p>I appreciate the flexibility and reliability of Gleamer's services. They always go above and beyond to exceed my expectations!</p>
+              <p class="author">- Emily Roberts</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+  PRICING
+  ============================================================ -->
+  <section class="pricing" id="pricing">
+    <div class="container">
+      <div class="section-header center">
+        <span class="badge">Transparent pricing</span>
+        <h2>Budget-friendly options for a cleaner home</h2>
+      </div>
+      <div class="pricing-list">
+        <div class="pricing-item">
+          <div class="pricing-info">
+            <i class="fas fa-home"></i>
+            <h5>Regular Cleaning</h5>
+          </div>
+          <p>Essential cleaning to keep your home fresh, tidy, and inviting.</p>
+          <span class="price">$120</span>
+          <a href="#" class="book-btn">Book a services</a>
+        </div>
+        <div class="pricing-item">
+          <div class="pricing-info">
+            <i class="fas fa-broom"></i>
+            <h5>Deep Cleaning</h5>
+          </div>
+          <p>Thorough cleaning for a spotless, sparkling home.</p>
+          <span class="price">$150</span>
+          <a href="#" class="book-btn">Book a services</a>
+        </div>
+        <div class="pricing-item">
+          <div class="pricing-info">
+            <i class="fas fa-truck"></i>
+            <h5>Move-in / Move-out</h5>
+          </div>
+          <p>Consistent cleaning to maintain a pristine, comfortable home.</p>
+          <span class="price">$200/mo</span>
+          <a href="#" class="book-btn">Book a services</a>
+        </div>
+        <div class="pricing-item">
+          <div class="pricing-info">
+            <i class="fas fa-boxes"></i>
+            <h5>Removal & Storage</h5>
+          </div>
+          <p>Comprehensive cleaning for special occasions and seasonal refreshes.</p>
+          <span class="price">$230</span>
+          <a href="#" class="book-btn">Book a services</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+  IMPACT BANNER
+  ============================================================ -->
+  <section class="impact-banner">
+    <div class="container">
+      <div class="impact-grid">
+        <div class="impact-content">
+          <h2 class="impact-number">408K+</h2>
+          <h4>People who have started <span class="highlight">cleaning</span></h4>
+          <p>Cleaning services in England cater to a wide range of needs from residential.</p>
+          <a href="#quote" class="btn btn-primary">Get a free quote</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+  FOOTER — REDESIGNED & ATTRACTIVE
+  ============================================================ -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <!-- Brand -->
+        <div class="footer-brand">
+          <a href="#" class="logo">
+            <span class="logo-icon">🧹</span>
+            <span class="logo-text" style="color:#fff;">Gleamer</span>
+          </a>
+          <p>Professional cleaning services for your home and office. Eco-friendly, reliable, and affordable.</p>
+          <div class="footer-social-links">
+            <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+            <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+          </div>
+        </div>
+
+        <!-- Quick Links -->
+        <div class="footer-col">
+          <h5>Quick Links</h5>
+          <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About Us</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#pricing">Pricing</a></li>
+          </ul>
+        </div>
+
+        <!-- Support -->
+        <div class="footer-col">
+          <h5>Support</h5>
+          <ul>
+            <li><a href="#">Help Center</a></li>
+            <li><a href="#">Terms of Service</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#contact">Contact Us</a></li>
+          </ul>
+        </div>
+
+        <!-- Newsletter -->
+        <div class="footer-col">
+          <div class="footer-newsletter-box">
+            <h5>Stay in the loop</h5>
+            <p>Subscribe for offers & updates.</p>
+            <form id="newsletterForm">
+              <input type="email" placeholder="Your email" required />
+              <button type="submit" class="btn btn-primary">Subscribe</button>
+            </form>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <span>© 2026 Gleamer — Premium Cleaning Services</span>
+        <div class="footer-legal-links">
+          <a href="#">Terms</a>
+          <a href="#">Privacy</a>
+          <a href="#">Cookies</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- JavaScript -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+
+      // ============================================================
+      // MOBILE NAVIGATION
+      // ============================================================
+      const mobileToggle = document.getElementById('mobileToggle');
+      const navLinks = document.getElementById('navLinks');
+
+      if (mobileToggle && navLinks) {
+        mobileToggle.addEventListener('click', () => {
+          navLinks.classList.toggle('open');
+          const icon = mobileToggle.querySelector('i');
+          if (navLinks.classList.contains('open')) {
+            icon.className = 'fas fa-times';
+          } else {
+            icon.className = 'fas fa-bars';
+          }
+        });
+
+        navLinks.querySelectorAll('a').forEach(link => {
+          link.addEventListener('click', () => {
+            navLinks.classList.remove('open');
+            const icon = mobileToggle.querySelector('i');
+            icon.className = 'fas fa-bars';
+          });
+        });
+      }
+
+      // ============================================================
+      // DARK MODE TOGGLE
+      // ============================================================
+      const themeToggle = document.getElementById('themeToggle');
+      if (themeToggle) {
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme === 'dark') {
+          document.body.classList.add('dark');
+          themeToggle.innerHTML = '<i class="fas fa-sun"></i>';
+        }
+
+        themeToggle.addEventListener('click', () => {
+          document.body.classList.toggle('dark');
+          const icon = themeToggle.querySelector('i');
+          if (document.body.classList.contains('dark')) {
+            icon.className = 'fas fa-sun';
+            localStorage.setItem('theme', 'dark');
+          } else {
+            icon.className = 'fas fa-moon';
+            localStorage.setItem('theme', 'light');
+          }
+        });
+      }
+
+      // ============================================================
+      // MODAL (Sign In / Sign Up)
+      // ============================================================
+      const modal = document.getElementById('authModal');
+      const trigger = document.getElementById('authTrigger');
+      const closeBtn = document.getElementById('modalClose');
+      const switchAction = document.getElementById('switchAction');
+      const switchText = document.getElementById('switchText');
+      const modalTitle = document.getElementById('modalTitle');
+      const modalSub = document.getElementById('modalSub');
+      const authSubmit = document.getElementById('authSubmit');
+      const authForm = document.getElementById('authForm');
+
+      let isSignIn = true;
+
+      function openModal() {
+        modal.classList.add('active');
+        document.body.style.overflow = 'hidden';
+      }
+
+      function closeModal() {
+        modal.classList.remove('active');
+        document.body.style.overflow = '';
+      }
+
+      function toggleAuthMode() {
+        isSignIn = !isSignIn;
+        if (isSignIn) {
+          modalTitle.textContent = 'Welcome back';
+          modalSub.textContent = 'Sign in to your account or create a new one.';
+          authSubmit.textContent = 'Sign In';
+          switchText.textContent = "Don't have an account?";
+          switchAction.textContent = 'Sign Up';
+        } else {
+          modalTitle.textContent = 'Join Gleamer';
+          modalSub.textContent = 'Create your account and get started.';
+          authSubmit.textContent = 'Sign Up';
+          switchText.textContent = 'Already have an account?';
+          switchAction.textContent = 'Sign In';
+        }
+      }
+
+      trigger.addEventListener('click', (e) => {
+        e.preventDefault();
+        openModal();
+      });
+
+      closeBtn.addEventListener('click', closeModal);
+
+      modal.addEventListener('click', (e) => {
+        if (e.target === modal) closeModal();
+      });
+
+      switchAction.addEventListener('click', toggleAuthMode);
+
+      authForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const email = document.getElementById('authEmail').value.trim();
+        const pass = document.getElementById('authPassword').value.trim();
+        if (email && pass) {
+          alert(isSignIn ? 'Signed in successfully!' : 'Account created successfully!');
+          closeModal();
+          authForm.reset();
+        } else {
+          alert('Please fill in all fields.');
+        }
+      });
+
+      // ============================================================
+      // CAROUSEL
+      // ============================================================
+      const track = document.getElementById('carouselTrack');
+      const prevBtn = document.getElementById('prevBtn');
+      const nextBtn = document.getElementById('nextBtn');
+
+      if (track && prevBtn && nextBtn) {
+        const slides = track.querySelectorAll('.carousel-slide');
+        const slideWidth = slides[0]?.offsetWidth || 440;
+        const gap = 40;
+        const totalWidth = slideWidth + gap;
+        let currentIndex = 0;
+        const maxIndex = slides.length - 1;
+
+        function updateCarousel() {
+          track.style.transform = `translateX(-${currentIndex * totalWidth}px)`;
+        }
+
+        prevBtn.addEventListener('click', () => {
+          if (currentIndex > 0) { currentIndex--; updateCarousel(); }
+        });
+
+        nextBtn.addEventListener('click', () => {
+          if (currentIndex < maxIndex) { currentIndex++; updateCarousel(); }
+        });
+
+        let autoPlay = setInterval(() => {
+          if (currentIndex < maxIndex) { currentIndex++; } else { currentIndex = 0; }
+          updateCarousel();
+        }, 5000);
+
+        const carouselWrapper = track.closest('.carousel-wrapper');
+        if (carouselWrapper) {
+          carouselWrapper.addEventListener('mouseenter', () => clearInterval(autoPlay));
+          carouselWrapper.addEventListener('mouseleave', () => {
+            autoPlay = setInterval(() => {
+              if (currentIndex < maxIndex) { currentIndex++; } else { currentIndex = 0; }
+              updateCarousel();
+            }, 5000);
+          });
+        }
+
+        let resizeTimeout;
+        window.addEventListener('resize', () => {
+          clearTimeout(resizeTimeout);
+          resizeTimeout = setTimeout(() => {
+            const newSlideWidth = slides[0]?.offsetWidth || 440;
+            const newTotalWidth = newSlideWidth + gap;
+            track.style.transform = `translateX(-${currentIndex * newTotalWidth}px)`;
+          }, 250);
+        });
+      }
+
+      // ============================================================
+      // FORMS
+      // ============================================================
+      const quoteForm = document.getElementById('quoteForm');
+      if (quoteForm) {
+        quoteForm.addEventListener('submit', (e) => {
+          e.preventDefault();
+          alert('Thank you for your interest! Our team will contact you shortly.');
+          quoteForm.reset();
+        });
+      }
+
+      const newsletterForm = document.getElementById('newsletterForm');
+      if (newsletterForm) {
+        newsletterForm.addEventListener('submit', (e) => {
+          e.preventDefault();
+          alert('Thank you for subscribing! You\'ll receive our latest updates.');
+          newsletterForm.reset();
+        });
+      }
+
+      // ============================================================
+      // SMOOTH SCROLL
+      // ============================================================
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+          const targetId = this.getAttribute('href');
+          if (targetId === '#') return;
+          const target = document.querySelector(targetId);
+          if (target) {
+            e.preventDefault();
+            const navHeight = document.querySelector('.navbar')?.offsetHeight || 80;
+            const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - navHeight;
+            window.scrollTo({ top: targetPosition, behavior: 'smooth' });
+          }
+        });
+      });
+
+      // ============================================================
+      // ACTIVE NAV LINK ON SCROLL
+      // ============================================================
+      const sections = document.querySelectorAll('section[id]');
+      const navLinkItems = document.querySelectorAll('.nav-links a');
+
+      if (sections.length && navLinkItems.length) {
+        window.addEventListener('scroll', () => {
+          let current = '';
+          const scrollPosition = window.scrollY + 120;
+
+          sections.forEach(section => {
+            const sectionTop = section.offsetTop;
+            const sectionHeight = section.offsetHeight;
+            if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+              current = section.getAttribute('id');
+            }
+          });
+
+          navLinkItems.forEach(link => {
+            link.classList.remove('active');
+            if (link.getAttribute('href') === `#${current}`) {
+              link.classList.add('active');
+            }
+          });
+        });
+      }
+
+    });
+  </script>
+
+</body>
+</html>
