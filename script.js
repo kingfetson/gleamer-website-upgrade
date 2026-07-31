@@ -142,50 +142,6 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   // ============================================================
-  // BOOK & CONTACT BUTTONS (scroll to contact/quote)
-  // ============================================================
-  function scrollToContact() {
-    const contactSection = document.getElementById('contact');
-    if (contactSection) {
-      const navHeight = document.querySelector('.navbar')?.offsetHeight || 80;
-      const targetPosition = contactSection.getBoundingClientRect().top + window.pageYOffset - navHeight;
-      window.scrollTo({ top: targetPosition, behavior: 'smooth' });
-    }
-  }
-
-  // Book buttons
-  const bookButtons = [
-    document.getElementById('bookNavBtn'),
-    document.getElementById('heroBookBtn'),
-    ...document.querySelectorAll('.book-btn')
-  ];
-
-  bookButtons.forEach(btn => {
-    if (btn) {
-      btn.addEventListener('click', (e) => {
-        e.preventDefault();
-        scrollToContact();
-      });
-    }
-  });
-
-  // Contact buttons
-  const contactButtons = [
-    document.getElementById('contactBtn'),
-    document.getElementById('quoteBtn'),
-    document.querySelector('.footer-col ul a[href="#contact"]')
-  ];
-
-  contactButtons.forEach(btn => {
-    if (btn) {
-      btn.addEventListener('click', (e) => {
-        e.preventDefault();
-        scrollToContact();
-      });
-    }
-  });
-
-  // ============================================================
   // CAROUSEL
   // ============================================================
   const track = document.getElementById('carouselTrack');
@@ -248,6 +204,15 @@ document.addEventListener('DOMContentLoaded', () => {
       e.preventDefault();
       alert('Thank you for your interest! Our team will contact you shortly.');
       quoteForm.reset();
+    });
+  }
+
+  const contactForm = document.getElementById('contactForm');
+  if (contactForm) {
+    contactForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      alert('Your message has been sent! We\'ll get back to you within 24 hours.');
+      contactForm.reset();
     });
   }
 
